@@ -1,18 +1,23 @@
 package Mercadinho.learning;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
-@RequestMapping("/test")
+
+
+@Component
 public class DatabaseTestController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private Clients clients;
 
     @GetMapping("/database")
     public @ResponseBody String testDatabaseConnection() {
@@ -22,5 +27,11 @@ public class DatabaseTestController {
         } catch (Exception e) {
             return "Erro ao conectar ao banco de dados: " + e.getMessage();
         }
+    }
+
+    @PostMapping("/clients")
+    public String createClient(@RequestBody ClientDTO clientDTO) {
+        clients.createClient(clientDTO.getName(), clientDTO.getSex(), clientDTO.getAddress());
+        return "Cliente cadastrado com sucesso.";
     }
 }
