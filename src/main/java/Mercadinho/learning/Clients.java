@@ -17,7 +17,6 @@ public class Clients {
             System.out.println("Cliente cadastrado com sucesso.");
         } catch (Exception e) {
             System.err.println("Erro ao cadastrar o cliente: " + e.getMessage());
-            System.out.println("Teste");
         }
     }
 }
