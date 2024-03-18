@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+//Quando uma classe é anotada com @Component significa
+// que a mesma usará o padrão de injeção de depêndencia, e será elegível para auto-configuração
+// e auto-detecção de beans anotados à partir de escaneamento de classpath que o IoC Container do Spring faz.
 
 @Component
 public class DatabaseTestController {
