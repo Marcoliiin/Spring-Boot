@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-//Quando uma classe é anotada com @Component significa
-// que a mesma usará o padrão de injeção de depêndencia, e será elegível para auto-configuração
-// e auto-detecção de beans anotados à partir de escaneamento de classpath que o IoC Container do Spring faz.
+/*Quando uma classe é anotada com @Component significa
+que a mesma usará o padrão de injeção de depêndencia, e será elegível para auto-configuração
+ e auto-detecção de beans anotados à partir de escaneamento de classpath que o IoC Container do Spring faz.*/
 
 @Component
 public class DatabaseTestController {
-
+/*O Autowired (@Autowired) é a anotação mais utiliza com relação a injeção de dependências.
+    Como o próprio nome diz, o Autowired, indica um ponto aonde a injeção automática deve ser aplicada. 
+    Esta pode ser usada em métodos, atributos e construtores.*/
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
